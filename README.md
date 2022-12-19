@@ -1,11 +1,14 @@
-# Sample Snack app
+# Lynpro
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+Lynpro est une application qui a pour objectif de proposer un outil d’improvisation permettant de lancer une battle d’improvisation de rap modulable et personnalisable.
+Pour cela, nous aurons besoin de plusieurs écrans qui sont :
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+  - Un écran d'accueil
+  - Un écran de personnalisation de battle
+  - Un écran de battle
+  - Un écran de gestion d'enregistrement
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+Les features principale de l'application seront basées sur de la lecture de musique, une gestion d'apparition de mot aléatoire, gestion de timer par joueur durant une battle.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+
