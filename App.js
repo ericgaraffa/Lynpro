@@ -3,10 +3,8 @@ import {Text, View, StyleSheet} from 'react-native';
 import Constants from 'expo-constants';
 import {supabase} from "./config/DatabaseConnection";
 import Nav from "./components/Nav";
-import ProfilCreate from "./components/ProfilCreate";
 import {useState, useEffect} from 'react';
 import Word from './components/word';
-import AssetExample from './components/AssetExample';
 import {Card} from 'react-native-paper';
 
 export default function App() {
