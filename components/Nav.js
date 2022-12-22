@@ -8,7 +8,6 @@ import {
 import Word from './word'
 import Animated from "react-native-reanimated";
 
-
 function CustomDrawerContent(props) {
     const progress = useDrawerProgress();
 
@@ -38,7 +37,6 @@ function MyDrawer() {
                 headerLeft: false,
                 drawerPosition: "right",
                 headerRight: () => <DrawerToggleButton/>,
-
             }}
         >
             <Drawer.Screen name="Word" component={Word} options={{}}/>
