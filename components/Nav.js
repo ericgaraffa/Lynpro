@@ -1,72 +1,47 @@
 import * as React from 'react';
-import {Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Word from "./word"
-import Home from "./Home"
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {
+    createDrawerNavigator,
+    DrawerContentScrollView,
+    DrawerItemList,
+    DrawerItem, useDrawerProgress, DrawerToggleButton,
+} from '@react-navigation/drawer';
+import Word from './word'
+import Animated from "react-native-reanimated";
 
-function HomeScreen() {
+function CustomDrawerContent(props) {
+    const progress = useDrawerProgress();
+
+    const translateX = Animated.interpolateNode(progress, {
+        inputRange: [0, 1],
+        outputRange: [-100, 0],
+    });
+
     return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Home!</Text>
-        </View>
+        <DrawerContentScrollView {...props}>
+            <Animated.View style={{transform: [{translateX}]}}>
+                <DrawerItemList {...props} />
+                <DrawerItem label="Help" onPress={() => alert('Link to help')}/>
+            </Animated.View>
+        </DrawerContentScrollView>
     );
 }
 
-function TestScreen() {
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
     return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>test!</Text>
-        </View>
-    );
-}
-
-function SettingsScreen() {
-    return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Settings!</Text>
-        </View>
-    );
-}
-
-const Tab = createBottomTabNavigator();
-
-function MyTabs() {
-    return (
-        <Tab.Navigator
-            screenOptions={({route}) => ({
-                tabBarIcon: ({focused, color, size}) => {
-                    let iconName;
-
-                    if (route.name === 'Home') {
-                        iconName = focused
-                            ? 'ios-information-circle'
-                            : 'ios-information-circle-outline';
-                    } else if (route.name === 'Settings') {
-                        iconName = focused ? 'ios-list' : 'ios-list-outline';
-                    }
-
-                    // You can return any component that you like here!
-                    return <Ionicons name={iconName} size={size} color={color}/>;
-                },
-                tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'gray',
-            })}
+        <Drawer.Navigator
+            useLegacyImplementation
+            drawerContent={(props) => <CustomDrawerContent {...props} />}
+            screenOptions={{
+                headerLeft: false,
+                drawerPosition: "right",
+                headerRight: () => <DrawerToggleButton/>,
+            }}
         >
-            <Tab.Screen name="Home" component={Home}/>
-            <Tab.Screen name="Settings" component={SettingsScreen}/>
-            <Tab.Screen name="Test" component={TestScreen}/>
-            <Tab.Screen name="Word" component={Word}/>
-        </Tab.Navigator>
-
+            <Drawer.Screen name="Word" component={Word} options={{}}/>
+        </Drawer.Navigator>
     );
 }
 
-export default function App() {
-    return (
-        <NavigationContainer>
-            <MyTabs/>
-        </NavigationContainer>
-    );
-}
+export default MyDrawer
