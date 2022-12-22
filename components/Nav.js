@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Word from "./word"
+import Home from "./Home"
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 function HomeScreen() {
@@ -53,7 +54,7 @@ function MyTabs() {
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen}/>
+            <Tab.Screen name="Home" component={Home}/>
             <Tab.Screen name="Settings" component={SettingsScreen}/>
             <Tab.Screen name="Test" component={TestScreen}/>
             <Tab.Screen name="Word" component={Word}/>
