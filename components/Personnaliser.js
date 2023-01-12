@@ -1,5 +1,5 @@
 import { View, Text, FlatList, TouchableHighlight } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Personnaliser = (props) => {
     const [selectedId, setSelectedId] = React.useState(null);
@@ -10,6 +10,7 @@ const Personnaliser = (props) => {
             const fig = props.tempsPassage.find(item => item.name === '4');
             props.setSelectedPassageProp(fig);
             props.setSelectedIdProp(fig.id);
+            handlePassagePress(fig)
         }
     }, [props.selectFig])
 
