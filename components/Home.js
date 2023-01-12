@@ -4,7 +4,7 @@ import Personnaliser from './Personnaliser';
 
 const { height, width } = Dimensions.get('window');
 const buttonHeight = 50;
-
+//git
 const MyComponent = () => {
 
     const tempsPassage = [
