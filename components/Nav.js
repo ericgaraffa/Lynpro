@@ -5,7 +5,7 @@ import {
     DrawerItemList,
     DrawerItem, useDrawerProgress, DrawerToggleButton,
 } from '@react-navigation/drawer';
-import Word from './word'
+import Home from './Home';
 import Animated from "react-native-reanimated";
 
 function CustomDrawerContent(props) {
@@ -39,7 +39,7 @@ function MyDrawer() {
                 headerRight: () => <DrawerToggleButton/>,
             }}
         >
-            <Drawer.Screen name="Word" component={Word} options={{}}/>
+            <Drawer.Screen name="Word" component={Home} options={{}}/>
         </Drawer.Navigator>
     );
 }
