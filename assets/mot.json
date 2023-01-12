@@ -1,0 +1,814 @@
+[
+  {
+    "mot": "abonder",
+    "categories": "VER"
+  },
+  {
+    "mot": "abondamment",
+    "categories": "ADV"
+  },
+  {
+    "mot": "abondance",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abondant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abonner",
+    "categories": "VER"
+  },
+  {
+    "mot": "abonnement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abonné",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abord",
+    "categories": "NOM"
+  },
+  {
+    "mot": "aborder",
+    "categories": "VER"
+  },
+  {
+    "mot": "abordable",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abordage",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abordé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "aborigène",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abornement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abortif",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "aboucher",
+    "categories": "VER"
+  },
+  {
+    "mot": "abouchement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abouler",
+    "categories": "VER"
+  },
+  {
+    "mot": "aboulie",
+    "categories": "NOM"
+  },
+  {
+    "mot": "aboulique",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abouna",
+    "categories": "NOM"
+  },
+  {
+    "mot": "about",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abouter",
+    "categories": "VER"
+  },
+  {
+    "mot": "abouti",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "aboutir",
+    "categories": "VER"
+  },
+  {
+    "mot": "aboutissant",
+    "categories": "NOM"
+  },
+  {
+    "mot": "aboutissement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "aboutonner",
+    "categories": "VER"
+  },
+  {
+    "mot": "aboyant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "aboyeur",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abracadabra",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abracadabrant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abracadabrer",
+    "categories": "VER"
+  },
+  {
+    "mot": "abrasif",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrasion",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abraser",
+    "categories": "VER"
+  },
+  {
+    "mot": "abraxas",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abreuver",
+    "categories": "VER"
+  },
+  {
+    "mot": "abreuvage",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abreuvoir",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abreuvé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abri",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abri-refuge",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abribus",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abricot",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abricoter",
+    "categories": "VER"
+  },
+  {
+    "mot": "abricotier",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abricotine",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abriter",
+    "categories": "VER"
+  },
+  {
+    "mot": "abritant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrité",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrogation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abroger",
+    "categories": "VER"
+  },
+  {
+    "mot": "abrogé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrupt",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abruptement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "abruti",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrutir",
+    "categories": "VER"
+  },
+  {
+    "mot": "abrutissant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abrutissement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abrutisseur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abréger",
+    "categories": "VER"
+  },
+  {
+    "mot": "abrégé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abréviatif",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abréviation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abscisse",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abscission",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abscons",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absence",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absent",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absenter",
+    "categories": "VER"
+  },
+  {
+    "mot": "absentéisme",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absentéiste",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abside",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absidial",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absidiole",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absinther",
+    "categories": "VER"
+  },
+  {
+    "mot": "absinthe",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absolu",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absolument",
+    "categories": "ADV"
+  },
+  {
+    "mot": "absolution",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absolutisme",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absoudre",
+    "categories": "VER"
+  },
+  {
+    "mot": "absolvant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absorber",
+    "categories": "VER"
+  },
+  {
+    "mot": "absorbable",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absorbant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absorbeur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absorbé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absorption",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absous",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absoute",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abstenir",
+    "categories": "VER"
+  },
+  {
+    "mot": "abstention",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abstentionniste",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abstenu",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abstinence",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abstinent",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abstraction",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abstraire",
+    "categories": "VER"
+  },
+  {
+    "mot": "abstrait",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abstraitement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "abstrus",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absurde",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "absurdement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "absurdiste",
+    "categories": "NOM"
+  },
+  {
+    "mot": "absurdité",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abus",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abuser",
+    "categories": "VER"
+  },
+  {
+    "mot": "abuseur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abusif",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abusivement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "abusé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abyme",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abyssal",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abysse",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abyssin",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abyssinien",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abâtardir",
+    "categories": "VER"
+  },
+  {
+    "mot": "abâtardi",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abécédaire",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abêti",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "abêtir",
+    "categories": "VER"
+  },
+  {
+    "mot": "abêtissement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "abîmer",
+    "categories": "VER"
+  },
+  {
+    "mot": "abîme",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acabit",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acacia",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acadien",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "acadienne",
+    "categories": "NOM"
+  },
+  {
+    "mot": "académicien",
+    "categories": "NOM"
+  },
+  {
+    "mot": "académie",
+    "categories": "NOM"
+  },
+  {
+    "mot": "académique",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "académiquement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "académisme",
+    "categories": "NOM"
+  },
+  {
+    "mot": "académiser",
+    "categories": "VER"
+  },
+  {
+    "mot": "acagnarder",
+    "categories": "VER"
+  },
+  {
+    "mot": "acajou",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "acanthe",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acarien",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acariâtre",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accabler",
+    "categories": "VER"
+  },
+  {
+    "mot": "accablant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accablement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accablé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accalmie",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accalmir",
+    "categories": "VER"
+  },
+  {
+    "mot": "accaparer",
+    "categories": "VER"
+  },
+  {
+    "mot": "accaparant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accapareur",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accastillage",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accelerando",
+    "categories": "ADV"
+  },
+  {
+    "mot": "accent",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accenteur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accentuer",
+    "categories": "VER"
+  },
+  {
+    "mot": "accentuation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accentué",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accepter",
+    "categories": "VER"
+  },
+  {
+    "mot": "acceptable",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "acceptant",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acceptation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acception",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accesseur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accessibilité",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accessible",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accession",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accessit",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accessoire",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accessoirement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "accessoiriser",
+    "categories": "VER"
+  },
+  {
+    "mot": "accessoiriste",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accident",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accidenter",
+    "categories": "VER"
+  },
+  {
+    "mot": "accidentel",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accidentellement",
+    "categories": "ADV"
+  },
+  {
+    "mot": "accidenté",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "acclamer",
+    "categories": "VER"
+  },
+  {
+    "mot": "acclamation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acclimater",
+    "categories": "VER"
+  },
+  {
+    "mot": "acclimatation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "acclimatement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accointance",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accointer",
+    "categories": "VER"
+  },
+  {
+    "mot": "accoler",
+    "categories": "VER"
+  },
+  {
+    "mot": "accolade",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accolement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accolé",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accommoder",
+    "categories": "VER"
+  },
+  {
+    "mot": "accommodant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accommodation",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accommodateur",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accommodement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accompagner",
+    "categories": "VER"
+  },
+  {
+    "mot": "accompagnant",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accompagnateur",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accompagnement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accompagné",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accompli",
+    "categories": "ADJ"
+  },
+  {
+    "mot": "accomplir",
+    "categories": "VER"
+  },
+  {
+    "mot": "accomplissement",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accord",
+    "categories": "NOM"
+  },
+  {
+    "mot": "accorder",
+    "categories": "VER"
+  },
+  {
+    "mot": "accordailles",
+    "categories": "NOM"
+  }
+]
