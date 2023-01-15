@@ -126,13 +126,13 @@ const MyComponent = () => {
                                 style={styles.button}
                                 onPress={handleClassicPress}
                             >
-                                <Text style={styles.buttonText}>CLASSIC</Text>
+                                <Text style={styles.buttonText}>Classique</Text>
                             </TouchableHighlight>
                             <TouchableHighlight
                                 style={styles.button}
                                 onPress={handleCompetPress}
                             >
-                                <Text style={styles.buttonText}>COMPET</Text>
+                                <Text style={styles.buttonText}>Compétitif</Text>
                             </TouchableHighlight>
                             <View style={{
                                 alignSelf: 'center',
