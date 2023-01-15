@@ -1,14 +1,26 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {View, Text, StyleSheet, Alert, Button} from 'react-native';
 import { Audio } from 'expo-av';
+import {useNavigation} from "@react-navigation/native";
 
-export default function Words() {
+const Game = (navigation) => {
+    const nav = useNavigation();
+
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
+
+    const [EndGame, SetEndGame ] = useState(false)
     const [words, setWords] = useState(require('../assets/mot.json'));
     let random = Math.floor(Math.random() * words.length)
     const [currentWord, setCurrentWord] = useState(words[random]['mot']);
-    const [timeLeft, setTimeLeft] = useState(10);
+    const [timeLeft, setTimeLeft] = useState(navigation.route.params.gameTime ? navigation.route.params.gameTime : 60);
     const [round, setRound] = useState(1);
-    const [player, setPlayer] = useState('Player 1');
+    const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
 
     useEffect(() => {
         // Fetch words from JSON file
@@ -28,17 +40,19 @@ export default function Words() {
                         setRound(round + 1);
                         setCurrentWord("");
                     }
-                    if(round == 2)
+                    if(round == 2){
+                        SetEndGame(true);
                         Alert.alert('FIN', 'La partie est terminée');
+                    }
                 } else {
                     setRound(round + 1);
-                    setTimeLeft(10);
-                    setPlayer(player === 'Player 1' ? 'Player 2' : 'Player 1');
+                    setTimeLeft(navigation.route.params.gameTime);
+                    setPlayer(player === navigation.route.params.player1 ? navigation.route.params.player2 ? navigation.route.params.player2 : "player2"  : navigation.route.params.player1);
                 }
             }
         }, 2000);
         return () => clearInterval(interval);
-    }, [words, timeLeft, round]);
+    }, [words, timeLeft, round, navigation.route.params.gameTime, navigation.route.params.player1, navigation.route.params.player2]);
 
     useEffect(() => {
         // Display a new word every 2 seconds
@@ -50,9 +64,9 @@ export default function Words() {
                         setCurrentWord(randomWord);
                     }
             }
-        }, 2050);
+        }, navigation.route.params.wordTime);
         return () => clearInterval(interval);
-    }, [words, round]);
+    }, [words, round, navigation.route.params.wordTime]);
 
     // decrement the time left every second
     useEffect(() => {
@@ -72,26 +86,31 @@ export default function Words() {
             console.log("Loading sound");
             music.loadAsync(require('../assets/music/music.mp3')).then(() => {
                 console.log("Sound Loaded");
-                music.playAsync();
+                if(isMounted.current) music.playAsync();
             });
         }
         return () => {
             music.stopAsync();
             music.unloadAsync();
         }
-    }, [round]);
-
+    }, [round,isMounted.current]);
+    const handleRematch = () => {
+        nav.goBack()
+    };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.timer}>{timeLeft} seconds left</Text>
+            <Text style={styles.timer}>Il reste {timeLeft} secondes</Text>
             <Text style={styles.player}>{player}</Text>
             <View style={styles.wordContainer}>
                 <Text style={styles.word}>{currentWord}</Text>
             </View>
+            {EndGame && (<Button onPress={handleRematch} title="Rejouer"></Button>) }
         </View>
     );
 }
+
+export default Game;
 
 const styles = StyleSheet.create({
     container: {

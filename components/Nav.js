@@ -7,6 +7,9 @@ import {
 } from '@react-navigation/drawer';
 import Home from './Home';
 import Animated from "react-native-reanimated";
+import Game from './Game'
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import Personnaliser from "./Personnaliser";
 
 function CustomDrawerContent(props) {
     const progress = useDrawerProgress();
@@ -20,6 +23,7 @@ function CustomDrawerContent(props) {
         <DrawerContentScrollView {...props}>
             <Animated.View style={{transform: [{translateX}]}}>
                 <DrawerItemList {...props} />
+                <DrawerItem label="Enregistrement" onPress={() => alert('Link to help')}/>
                 <DrawerItem label="Help" onPress={() => alert('Link to help')}/>
             </Animated.View>
         </DrawerContentScrollView>
@@ -27,8 +31,9 @@ function CustomDrawerContent(props) {
 }
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
-function MyDrawer() {
+function DrawerNav() {
     return (
         <Drawer.Navigator
             useLegacyImplementation
@@ -39,8 +44,21 @@ function MyDrawer() {
                 headerRight: () => <DrawerToggleButton/>,
             }}
         >
-            <Drawer.Screen name="Word" component={Home} options={{}}/>
+            <Drawer.Screen name="Lynpro" component={Home} options={{}}/>
         </Drawer.Navigator>
+    );
+}
+
+function MyDrawer() {
+    return (
+        <Stack.Navigator screenOptions={{headerShown: true}}>
+            <Stack.Group>
+                <Stack.Screen name="Root" component={DrawerNav} options={{ headerShown: false }}/>
+                <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+                <Stack.Screen name="Perso" component={Personnaliser} options={{ headerShown: false }}/>
+                <Stack.Screen name="Game" component={Game}/>
+            </Stack.Group>
+        </Stack.Navigator>
     );
 }
 
