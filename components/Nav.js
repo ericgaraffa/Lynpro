@@ -24,6 +24,7 @@ function CustomDrawerContent(props) {
             <Animated.View style={{transform: [{translateX}]}}>
                 <DrawerItemList {...props} />
                 <DrawerItem label="Enregistrement" onPress={() => alert('Link to help')}/>
+                <DrawerItem label="Favoris" onPress={() => alert('Link to help')}/>
                 <DrawerItem label="Help" onPress={() => alert('Link to help')}/>
             </Animated.View>
         </DrawerContentScrollView>
@@ -44,7 +45,7 @@ function DrawerNav() {
                 headerRight: () => <DrawerToggleButton/>,
             }}
         >
-            <Drawer.Screen name="Lynpro" component={Home} options={{}}/>
+            <Drawer.Screen name="Limpro" component={Home} options={{}}/>
         </Drawer.Navigator>
     );
 }

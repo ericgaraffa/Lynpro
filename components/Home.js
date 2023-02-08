@@ -17,11 +17,10 @@ const MyComponent = () => {
     ];
 
     const [scroll, setScroll] = useState(false);
-    const [persoCompet, setPersoCompet] = useState(false);
     const [click, setClick] = useState(false);
     const [standardPos, setstandardPos] = useState({x: 0, y: height+ height/3.2});
     const [classicPos, setclassicPos] = useState({x: 0, y: 0});
-    const [personaliserPos, setPersonaliserPos] = useState({x: 0, y: height*2 + height/50});
+    const [personaliserPos, setPersonaliserPos] = useState({x: 0, y: height*2});
     const scrollViewRef = useRef(null);
     const initialPosition = height / 3;
     const [SelectedPassageProp, setSelectedPassageProp] = useState(null);
@@ -49,8 +48,7 @@ const MyComponent = () => {
     }, []);
 
     const handlePersonnaliserPress = useCallback(() => {
-        setPersoCompet(true);
-        scrollViewRef.current.scrollTo({x: standardPos.x, y: standardPos.y, animated: true});
+        scrollViewRef.current.scrollTo({x: standardPos.x, y: standardPos.y});
     }, []);
 
     const handleCompetPress = useCallback(() => {
@@ -77,7 +75,6 @@ const MyComponent = () => {
 
     const handleBackPress = useCallback(() => {
         setScroll(false)
-        setPersoCompet(false)
         setstandardPos({x: 0, y: initialPosition});
         setclassicPos({x: 0, y: initialPosition + height / 20});
         scrollViewRef.current.scrollTo({x: 0, y: 0, animated: true});
@@ -116,10 +113,10 @@ const MyComponent = () => {
                         >
                             <Text style={styles.buttonText}>PERSONNALISER</Text>
                         </TouchableHighlight>
-                        {persoCompet && <View style={{
+                        <View style={{
                             alignSelf: 'center',
                             marginTop: height,
-                            display: persoCompet ? 'flex' : 'none',
+                            display: 'flex',
                             alignItems: 'center'
                         }}>
                             <TouchableHighlight
@@ -144,7 +141,7 @@ const MyComponent = () => {
                                                selectedPassageProp={setSelectedPassageProp}
                                                selectedIdProp={setSelectedIdProp}/>
                             </View>
-                        </View> }
+                        </View>
                     </View>
                 </View>
             </ScrollView>}

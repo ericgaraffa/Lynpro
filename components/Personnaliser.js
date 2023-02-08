@@ -4,6 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from "@react-navigation/stack";
 import Game from './Game';
 
+const timeBeforeWord = [
+    {id: 1, name: '2'},
+    {id: 2, name: '4'},
+    {id: 3, name: '6'}
+];
+
 const gameTimes = [
     {id: 4, name: '10'},
     {id: 5, name: '60'},
@@ -20,7 +26,6 @@ const Personnaliser = (props) => {
     const scrollViewRef = useRef(props.scrollViewRef);
     const [player1, setPlayer1] = useState('Player1');
     const [player2, setPlayer2] = useState('Player2');
-    const {height, width} = Dimensions.get('window');
 
     useEffect(() => {
         if (props.selectAuto) {
