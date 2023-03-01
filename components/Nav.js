@@ -7,13 +7,17 @@ import {
 } from '@react-navigation/drawer';
 import Home from './Home';
 import Animated from "react-native-reanimated";
-import Game from './Game'
+import Game from './Game';
+import Basic_choice from './Basic_choice';
+import Format_choice from './Format_choice';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import Personnaliser from "./Personnaliser";
+import Personalization from "./Personalization";
 import {Image, StyleSheet, View} from "react-native";
 import * as Font from 'expo-font';
 import {useState} from "react";
 import Apploading from "expo-app-loading";
+
+
 
 const getFonts = () =>
     Font.loadAsync({
@@ -60,6 +64,9 @@ function DrawerNav() {
     return (
         <View style={styles.container}>
         <Drawer.Navigator
+            drawerStyle={{
+                height: 100,
+            }}
             useLegacyImplementation
             drawerContent={(props) => <CustomDrawerContent {...props} />}
             screenOptions={{
@@ -88,7 +95,9 @@ function MyDrawer() {
                 <Stack.Group>
                     <Stack.Screen name="Root" component={DrawerNav} options={{ headerShown: false }}/>
                     <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
-                    <Stack.Screen name="Perso" component={Personnaliser} options={{ headerShown: false }}/>
+                    <Stack.Screen name="Personalization" component={Personalization} options={{ headerShown: false }}/>
+                    <Stack.Screen name="Format_choice" component={Format_choice} options={{ headerShown: false }}/>
+                    <Stack.Screen name="Basic_choice" component={Basic_choice} options={{ headerShown: false }}/>
                     <Stack.Screen name="Game" component={Game}/>
                 </Stack.Group>
             </Stack.Navigator>
