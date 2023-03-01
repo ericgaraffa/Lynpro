@@ -15,9 +15,9 @@ const Game = (navigation) => {
     }, []);
 
     const [EndGame, SetEndGame ] = useState(false)
-    const [words, setWords] = useState(require('../assets/mot.json'));
+    const [words, setWords] = useState(require('../assets/mots.json'));
     let random = Math.floor(Math.random() * words.length)
-    const [currentWord, setCurrentWord] = useState(words[random]['mot']);
+    const [currentWord, setCurrentWord] = useState(words[random]['Mot']);
     const [timeLeft, setTimeLeft] = useState(navigation.route.params.gameTime ? navigation.route.params.gameTime : 60);
     const [round, setRound] = useState(1);
     const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
@@ -25,7 +25,7 @@ const Game = (navigation) => {
     useEffect(() => {
         // Fetch words from JSON file
         const fetchWords = async () => {
-            const response = require('../assets/mot.json');
+            const response = require('../assets/mots.json');
             setWords(response);
         };
         fetchWords();
@@ -60,7 +60,7 @@ const Game = (navigation) => {
             if (words.length > 0) {
                     if(round < 3) {
                         const randomIndex = Math.floor(Math.random() * words.length);
-                        const randomWord = words[randomIndex]['mot'];
+                        const randomWord = words[randomIndex]['Mot'];
                         setCurrentWord(randomWord);
                     }
             }

@@ -81,7 +81,7 @@ const MyComponent = () => {
     }, [])
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{flex: 1, backgroundColor:"#3F0F40"}}>
 
             {!scroll &&
                 <TouchableOpacity style={styles.mainButton} onPress={handleStartPress}>
