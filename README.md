@@ -1,6 +1,6 @@
-# Lynpro
+# Limpro
 
-Lynpro est une application qui a pour objectif de proposer un outil d’improvisation permettant de lancer une battle d’improvisation de rap modulable et personnalisable.
+Limpro est une application qui a pour objectif de proposer un outil d’improvisation permettant de lancer une battle d’improvisation de rap modulable et personnalisable.
 Pour cela, nous aurons besoin de plusieurs écrans qui sont :
 
   - Un écran d'accueil

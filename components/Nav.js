@@ -17,7 +17,7 @@ import * as Font from 'expo-font';
 import {useState} from "react";
 import Apploading from "expo-app-loading";
 import basic_choice from "./Basic_choice";
-
+import {LinearGradient} from 'expo-linear-gradient';
 
 const getFonts = () =>
     Font.loadAsync({
@@ -36,11 +36,9 @@ function CustomDrawerContent(props) {
         return (
             <DrawerContentScrollView {...props} style={{backgroundColor: '#926593'}}>
                 <Animated.View style={{transform: [{translateX}]}}>
-                    <DrawerItemList {...props} />
                     <DrawerItem labelStyle={styles.label} label="Enregistrements"
                                 onPress={() => alert('Link to help')}/>
                     <DrawerItem labelStyle={styles.label} label="Favoris" onPress={() => alert('Link to help')}/>
-                    <DrawerItem labelStyle={styles.label} label="Recherche" onPress={() => alert('Link to help')}/>
                     <DrawerItem labelStyle={styles.label} label="Paramètres" onPress={() => alert('Link to help')}/>
                 </Animated.View>
             </DrawerContentScrollView>
@@ -65,12 +63,12 @@ function DrawerNav() {
     return (
         <View style={styles.container}>
             <Drawer.Navigator
-                drawerStyle={{
-                    height: 100,
-                }}
                 useLegacyImplementation
                 drawerContent={(props) => <CustomDrawerContent {...props} />}
                 screenOptions={{
+                    headerStyle: {
+                        backgroundColor: '#380D39',
+                    },
                     headerLeft: false,
                     drawerPosition: "right",
                     headerRight: () => <DrawerToggleButton/>,
@@ -80,7 +78,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 32, height: 32, marginLeft: 16}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
                         />
                     ),
                 }}/>
@@ -88,7 +86,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 32, height: 32, marginLeft: 16}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
                         />
                     ),
                 }}/>
@@ -96,7 +94,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 32, height: 32, marginLeft: 16}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
                         />
                     ),
                 }}/>
@@ -104,7 +102,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 32, height: 32, marginLeft: 16}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
                         />
                     ),
                 }}/>
@@ -140,6 +138,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         fontFamily: 'PoppinsMedium',
+    },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: 900,
     },
 });
 
