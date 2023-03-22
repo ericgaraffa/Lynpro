@@ -67,7 +67,7 @@ const HelloWorld = (nav) => {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={['rgba(63,15,64,0.9)', 'transparent']}
@@ -133,6 +133,10 @@ const styles = StyleSheet.create({
         marginBottom: 50,
         padding: 10,
         alignItems: 'center',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: "#0c030c",
     },
     buttonText: {
         color: '#fff',
