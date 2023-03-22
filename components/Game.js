@@ -1,7 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, StyleSheet, Alert, Button} from 'react-native';
+import {View, Text, StyleSheet, Alert, Button, Dimensions} from 'react-native';
 import { Audio } from 'expo-av';
 import {useNavigation} from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
+
+const {height, width} = Dimensions.get('window');
 
 const Game = (navigation) => {
     const nav = useNavigation();
@@ -58,11 +61,11 @@ const Game = (navigation) => {
         // Display a new word every 2 seconds
         const interval = setInterval(() => {
             if (words.length > 0) {
-                    if(round < 3) {
-                        const randomIndex = Math.floor(Math.random() * words.length);
-                        const randomWord = words[randomIndex]['Mot'];
-                        setCurrentWord(randomWord);
-                    }
+                if(round < 3) {
+                    const randomIndex = Math.floor(Math.random() * words.length);
+                    const randomWord = words[randomIndex]['Mot'];
+                    setCurrentWord(randomWord);
+                }
             }
         }, navigation.route.params.wordTime);
         return () => clearInterval(interval);
@@ -100,7 +103,12 @@ const Game = (navigation) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.timer}>Il reste {timeLeft} secondes</Text>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['rgba(63,15,64,0.9)', 'transparent']}
+                style={styles.background}
+            />
+            <Text style={styles.timer}>{timeLeft}</Text>
             <Text style={styles.player}>{player}</Text>
             <View style={styles.wordContainer}>
                 <Text style={styles.word}>{currentWord}</Text>
@@ -115,22 +123,38 @@ export default Game;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#0c030c",
         alignItems: 'center',
-        justifyContent: 'center',
+
     },
     timer: {
-        fontSize: 20,
-        marginBottom: 20,
+        color: 'white',
+        fontSize: 50,
+        marginTop: height / 12,
+        marginBottom: 30,
     },
     player: {
+        color: 'white',
         fontSize: 20,
         marginBottom: 20,
     },
     wordContainer: {
         alignItems: 'center',
+        marginTop: height / 4,
         justifyContent: 'center',
     },
     word: {
-        fontSize: 36,
+        color: 'yellow',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 30,
+        textTransform: 'uppercase'
     },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: 900,
+    }
 });

@@ -1,20 +1,25 @@
-import {View, Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Dimensions, Image} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import {useDrawerStatus} from '@react-navigation/drawer';
-import { LinearGradient } from 'expo-linear-gradient';
+import {LinearGradient} from 'expo-linear-gradient';
+import Format_choice from "./Format_choice";
 
 const {height, width} = Dimensions.get('window');
 
 const MyComponent = () => {
     const navigation = useNavigation();
     return (
-        <View style={{flex: 1, backgroundColor:"#0c030c"}}>
+        <View style={{flex: 1, backgroundColor: "#0c030c"}}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={['rgba(63,15,64,0.9)', 'transparent']}
                 style={styles.background}
             />
-            <TouchableOpacity style={styles.mainButton} onPress={() => navigation.navigate("  ")}>
+            <Image source={require('../assets/LOGO_LIMPRO_jaune.png')} style={styles.logo}/>
+            <TouchableOpacity
+                style={styles.mainButton}
+                // Go to Format_choice
+                onPress={() => navigation.navigate("  ")}>
                 <Text style={styles.mainButtonText}>BATTLE</Text>
             </TouchableOpacity>
         </View>
@@ -38,9 +43,10 @@ const styles = StyleSheet.create({
     mainButton: {
         position: 'absolute',
         alignSelf: 'center',
-        marginTop: height / 2.5,
+        marginTop: height / 1.6,
         backgroundColor: 'yellow',
         padding: 15,
+        width: 200,
         borderRadius: 25
     },
     mainButtonText: {
@@ -56,4 +62,12 @@ const styles = StyleSheet.create({
         top: 0,
         height: 900,
     },
+    logo: {
+        position: 'absolute',
+        width: 200,
+        height: 230,
+        alignSelf: 'center',
+        marginTop: height / 7,
+        resizeMode: 'contain'
+    }
 });

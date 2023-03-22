@@ -1,14 +1,20 @@
 import React from 'react';
 import {View, Text, TouchableHighlight, StyleSheet, Dimensions} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const {height, width} = Dimensions.get('window');
 
-const HelloWorld = (navigation) => {
+const Format_Choice = (navigation) => {
     const nav = useNavigation();
     return (
         <View style={styles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['rgba(63,15,64,0.9)', 'transparent']}
+                style={styles.background}
+            />
             <View style={styles.centeredView}>
                 <TouchableHighlight
                     style={styles.buttonStandard}
@@ -27,7 +33,7 @@ const HelloWorld = (navigation) => {
     );
 };
 
-export default HelloWorld;
+export default Format_Choice;
 
 
 const styles = StyleSheet.create({
@@ -48,6 +54,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+        backgroundColor: "#0c030c",
         justifyContent: 'center', // centre le contenu verticalement
         alignItems: 'center', // centre le contenu horizontalement
     },
@@ -60,6 +67,12 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         fontWeight: 'bold',
-    }
+    },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        height: 900,
+    },
 });
-

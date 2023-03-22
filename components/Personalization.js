@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, TouchableHighlight, FlatList, TextInput, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-import {LinearGradient} from "expo-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const {height, width} = Dimensions.get('window');
