@@ -4,21 +4,36 @@ import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from "@react-navigation/stack";
 import Game from './Game';
 
-const timeBeforeWord = [
-    {id: 1, name: '2'},
-    {id: 2, name: '4'},
-    {id: 3, name: '6'}
-];
-
 const gameTimes = [
     {id: 4, name: '10'},
     {id: 5, name: '60'},
     {id: 6, name: '90'}
 ];
 
-const Personnaliser = (props) => {
-    const navigation = useNavigation();
 
+const Personnaliser = (props) => {
+
+    const timeBeforeWord = [
+        {id: 1, name: '2'},
+        {id: 2, name: '4'},
+        {id: 3, name: '6'}
+    ];
+    const selectAutoClassic = () => {
+        const classictimeBeforeWord = timeBeforeWord.find(item => item.name === '4');
+        setSelectedPassageProp(classictimeBeforeWord);
+        setSelectedIdProp(classictimeBeforeWord.id);
+    };
+
+    const selectAutoCompete = () => {
+        const competetimeBeforeWord = timeBeforeWord.find(item => item.name === '2');
+        setSelectedPassageProp(competetimeBeforeWord);
+        setSelectedIdProp(competetimeBeforeWord.id);
+    };
+
+
+    const navigation = useNavigation();
+    const [selectedPassageProp, setSelectedPassageProp] = useState({});
+    const [selectedIdProp, setSelectedIdProp] = useState(null);
     const [selectedId, setSelectedId] = React.useState(null);
     const [selectedIdGameTime, setSelectedIdGameTime] = React.useState(5);
     const [beforeWord, setBeforeWord] = React.useState(4);
@@ -29,12 +44,14 @@ const Personnaliser = (props) => {
 
     useEffect(() => {
         if (props.selectAuto) {
-            const Auto = props.timeBeforeWord.find(item => item.name === '4');
-            props.selectedPassageProp(Auto);
-            props.selectedIdProp(Auto.id);
-            handleBeforeWordPress(Auto)
+            const Auto = timeBeforeWord.find(item => item.name === '4');
+            setSelectedPassageProp(Auto);
+            setSelectedIdProp(Auto.id);
+            handleBeforeWordPress(Auto);
+            selectAutoCompete();
         }
     }, [props.selectAuto])
+
 
     const handleStartPress = () => {
         navigation.navigate("Game", {
@@ -48,8 +65,8 @@ const Personnaliser = (props) => {
     const handleBeforeWordPress = beforeWord => {
         setBeforeWord(beforeWord.name * 1000 + 100 ? beforeWord.name * 1000 + 100 : 2);
         setSelectedId(beforeWord.id);
-        props.selectedPassageProp(beforeWord);
-        props.selectedIdProp(beforeWord.id);
+        selectedPassageProp(beforeWord);
+        selectedIdProp(beforeWord.id);
     };
     const handleGameTimePress = gameTime => {
         setGameTime(gameTime.name);
@@ -83,7 +100,7 @@ const Personnaliser = (props) => {
                 <Text>Temps avant le prochain mot</Text>
                 <FlatList
                     horizontal={true}
-                    data={props.timeBeforeWord}
+                    data={timeBeforeWord}
                     renderItem={renderBeforeWord}
                     keyExtractor={beforeWord => beforeWord.id}
                 />
