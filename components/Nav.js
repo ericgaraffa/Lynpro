@@ -75,18 +75,13 @@ function DrawerNav() {
                 }}
             >
                 <Drawer.Screen name=" " component={Home} options={{
-                    headerLeft: () => (
-                        <Image
-                            source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
-                        />
-                    ),
+
                 }}/>
                 <Drawer.Screen name="  " component={Format_choice} options={{
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
                         />
                     ),
                 }}/>
@@ -94,7 +89,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
                         />
                     ),
                 }}/>
@@ -102,7 +97,7 @@ function DrawerNav() {
                     headerLeft: () => (
                         <Image
                             source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8}}
+                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
                         />
                     ),
                 }}/>
@@ -114,14 +109,14 @@ function DrawerNav() {
 function MyDrawer() {
     return (
         <View style={styles.container}>
-            <Stack.Navigator screenOptions={{headerShown: true}}>
+            <Stack.Navigator>
                 <Stack.Group>
                     <Stack.Screen name="Root" component={DrawerNav} options={{headerShown: false}}/>
                     <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
-                    <Stack.Screen name="  " component={Format_choice} options={{headerShown: true}}/>
-                    <Stack.Screen name="   " component={Basic_choice} options={{headerShown: true}}/>
-                    <Stack.Screen name="    " component={Personalization} options={{headerShown: true}}/>
-                    <Stack.Screen name="Game" component={Game} options={{headerShown: false}}/>
+                    <Stack.Screen name="  " component={Format_choice} options={{headerShown: false}}/>
+                    <Stack.Screen name="   " component={Basic_choice} options={{headerShown: false}}/>
+                    <Stack.Screen name="    " component={Personalization} options={{headerShown: false}}/>
+                    <Stack.Screen name="     " component={Game} options={{headerShown: false}}/>
                 </Stack.Group>
             </Stack.Navigator>
         </View>
