@@ -12,13 +12,13 @@ const HelloWorld = (navigation) => {
             <View style={styles.centeredView}>
                 <TouchableHighlight
                     style={styles.buttonStandard}
-                    onPress={() => nav.navigate("Basic_choice")}
+                    onPress={() => nav.navigate("   ")}
                 >
                     <Text style={styles.buttonText}>STANDARD</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.buttonPersonnaliser}
-                    onPress={() => nav.navigate("Personalization")}
+                    onPress={() => nav.navigate("    ")}
                 >
                     <Text style={styles.buttonText}>PERSONNALISER</Text>
                 </TouchableHighlight>

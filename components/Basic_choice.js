@@ -11,22 +11,22 @@ const HelloWorld = (navigation) => {
             <View style={styles.centeredView}>
                 <TouchableHighlight
                     style={styles.buttonStandard}
-                    onPress={() => navigation.navigate("Game", {
+                    onPress={() => nav.navigate("Game", {
                         wordTime: 4100,
-                        gameTime : 60,
-                        player1 : "player1",
-                        player2 : "player2"
+                        gameTime: 60,
+                        player1: "player1",
+                        player2: "player2"
                     })}
                 >
                     <Text style={styles.buttonText}>FACILE</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.buttonPersonnaliser}
-                    onPress={() => navigation.navigate("Game", {
+                    onPress={() => nav.navigate("Game", {
                         wordTime: 4100,
-                        gameTime : 60,
-                        player1 : "player1",
-                        player2 : "player2"
+                        gameTime: 60,
+                        player1: "player1",
+                        player2: "player2"
                     })}
                 >
                     <Text style={styles.buttonText}>DIFFICILE</Text>

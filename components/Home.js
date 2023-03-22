@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, StyleSheet, Dimensions} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
-import { useDrawerStatus } from '@react-navigation/drawer';
+import {useDrawerStatus} from '@react-navigation/drawer';
 
 
 const {height, width} = Dimensions.get('window');
@@ -8,8 +8,8 @@ const {height, width} = Dimensions.get('window');
 const MyComponent = () => {
     const navigation = useNavigation();
     return (
-        <View style={{flex: 1, backgroundColor:"#3F0F40", marginTop: (height/2)-100}}>
-            <TouchableOpacity style={styles.mainButton}  onPress={() => navigation.navigate("Format_choice")}>
+        <View style={{flex: 1, backgroundColor: "#3F0F40", marginTop: (height / 2) - 100}}>
+            <TouchableOpacity style={styles.mainButton} onPress={() => navigation.navigate("  ")}>
                 <Text style={styles.mainButtonText}>BATTLE</Text>
             </TouchableOpacity>
         </View>
