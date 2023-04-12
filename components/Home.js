@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, StyleSheet, Dimensions, Image} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Platform} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -41,13 +41,18 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     mainButton: {
+        shadowColor: 'rgba(75,15,77, .4)', // IOS
+        shadowOffset: {height: 10, width: 10}, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        elevation: 1, //Android (don't work)
         position: 'absolute',
         alignSelf: 'center',
         marginTop: height / 1.6,
         backgroundColor: 'yellow',
         padding: 15,
         width: 200,
-        borderRadius: 25
+        borderRadius: 25,
     },
     mainButtonText: {
         color: 'black',

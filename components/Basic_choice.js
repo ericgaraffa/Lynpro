@@ -66,14 +66,26 @@ export default Basic_choice;
 
 const styles = StyleSheet.create({
     buttonStandard: {
-        backgroundColor: '#000',
+        shadowColor: 'rgba(75,15,77, .4)', // IOS
+        shadowOffset: {height: 10, width: 10}, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        elevation: 1, //Android (don't work)
+        width: width / 1.5,
+        backgroundColor: 'yellow',
         borderRadius: 25,
         marginBottom: 50,
         padding: 10,
         alignItems: 'center',
     },
     buttonPersonnaliser: {
-        backgroundColor: '#000',
+        shadowColor: 'rgba(75,15,77, .4)', // IOS
+        shadowOffset: {height: 10, width: 10}, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        elevation: 1, //Android (don't work)
+        width: width / 1.5,
+        backgroundColor: 'yellow',
         borderRadius: 25,
         marginBottom: 50,
         padding: 10,
@@ -93,8 +105,10 @@ const styles = StyleSheet.create({
         height: '80%',
     },
     buttonText: {
-        color: '#fff',
+        color: 'black',
         fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 30
     },
     background: {
         position: 'absolute',
