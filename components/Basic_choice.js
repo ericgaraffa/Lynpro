@@ -19,7 +19,7 @@ const Basic_choice = (navigation) => {
                     style={styles.buttonStandard}
                     //Navigate to Game
                     onPress={() => nav.navigate("     ", {
-                        wordTime: 4100,
+                        wordTime: 10100,
                         gameTime: 2,
                         player1: "player1",
                         player2: "player2"
@@ -31,13 +31,25 @@ const Basic_choice = (navigation) => {
                     style={styles.buttonPersonnaliser}
                     // Navigate to Game
                     onPress={() => nav.navigate("     ", {
-                        wordTime: 4100,
+                        wordTime: 5100,
                         gameTime: 60,
                         player1: "player1",
                         player2: "player2"
                     })}
                 >
                     <Text style={styles.buttonText}>DIFFICILE</Text>
+                </TouchableHighlight>
+                <TouchableHighlight
+                    style={styles.buttonPersonnaliser}
+                    // Navigate to Game
+                    onPress={() => nav.navigate("     ", {
+                        wordTime: 2100,
+                        gameTime: 60,
+                        player1: "player1",
+                        player2: "player2"
+                    })}
+                >
+                    <Text style={styles.buttonText}>EXTREME</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.buttonPersonnaliser}

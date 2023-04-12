@@ -71,7 +71,9 @@ function DrawerNav() {
                 screenOptions={{
                     headerStyle: {
                         backgroundColor: '#380D39',
-                        elevation: 0,
+                        elevation: 0, //ANDROID
+                        shadowOpacity: 0, //IOS
+                        borderBottomWidth: 0, //IOS
                     },
                     headerLeft: false,
                     drawerPosition: "right",
