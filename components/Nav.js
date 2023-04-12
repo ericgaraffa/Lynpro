@@ -12,12 +12,14 @@ import Basic_choice from './Basic_choice';
 import Format_choice from './Format_choice';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import Personalization from "./Personalization";
-import {Image, StyleSheet, View} from "react-native";
+import {Image, StyleSheet, TouchableOpacity, View} from "react-native";
 import * as Font from 'expo-font';
 import {useState} from "react";
 import Apploading from "expo-app-loading";
 import basic_choice from "./Basic_choice";
 import {LinearGradient} from 'expo-linear-gradient';
+import {NavigationActions as navigation} from "react-navigation";
+import {useNavigation} from "@react-navigation/native";
 
 const getFonts = () =>
     Font.loadAsync({
@@ -60,6 +62,7 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 function DrawerNav() {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <Drawer.Navigator
@@ -68,6 +71,7 @@ function DrawerNav() {
                 screenOptions={{
                     headerStyle: {
                         backgroundColor: '#380D39',
+                        elevation: 0,
                     },
                     headerLeft: false,
                     drawerPosition: "right",
@@ -79,26 +83,32 @@ function DrawerNav() {
                 }}/>
                 <Drawer.Screen name="  " component={Format_choice} options={{
                     headerLeft: () => (
-                        <Image
-                            source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
-                        />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Image
+                                source={require('../assets/LOGO_LIMPRO_jaune.png')}
+                                style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
+                            />
+                        </TouchableOpacity>
                     ),
                 }}/>
                 <Drawer.Screen name="   " component={basic_choice} options={{
                     headerLeft: () => (
-                        <Image
-                            source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
-                        />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Image
+                                source={require('../assets/LOGO_LIMPRO_jaune.png')}
+                                style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
+                            />
+                        </TouchableOpacity>
                     ),
                 }}/>
                 <Drawer.Screen name="    " component={Personalization} options={{
                     headerLeft: () => (
-                        <Image
-                            source={require('../assets/LOGO_LIMPRO_jaune.png')}
-                            style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
-                        />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Image
+                                source={require('../assets/LOGO_LIMPRO_jaune.png')}
+                                style={{width: 42.5, height: 39, marginLeft: 16, marginBottom: 8, resizeMode:'contain'}}
+                            />
+                        </TouchableOpacity>
                     ),
                 }}/>
             </Drawer.Navigator>
