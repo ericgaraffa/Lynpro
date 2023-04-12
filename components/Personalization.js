@@ -10,17 +10,18 @@ const HelloWorld = (nav) => {
 
     const timeBeforeWord = [
         {id: 1, name: '2'},
-        {id: 2, name: '4'},
-        {id: 3, name: '6'}
+        {id: 2, name: '5'},
+        {id: 3, name: '10'},
     ];
     const gameTimes = [
 
         {id: 4, name: '10'},
-        {id: 5, name: '60'},
-        {id: 6, name: '90'}
+        {id: 5, name: '30'},
+        {id: 6, name: '60'},
+        {id: 7, name: '90'}
     ];
 
-    const [selectedId, setSelectedId] = React.useState(null);
+    const [selectedId, setSelectedId] = React.useState(2);
     const [selectedIdGameTime, setSelectedIdGameTime] = React.useState(5);
     const [beforeWord, setBeforeWord] = React.useState(4);
     const [gameTime, setGameTime] = React.useState(60);
@@ -38,28 +39,28 @@ const HelloWorld = (nav) => {
 
     const handleBeforeWordPress = beforeWord => {
         setBeforeWord(beforeWord.name * 1000 + 100 ? beforeWord.name * 1000 + 100 : 2);
-        setSelectedId(beforeWord.id);
+        setSelectedId(beforeWord.id ? beforeWord.id : "2");
     };
     const handleGameTimePress = gameTime => {
-        setGameTime(gameTime.name);
+        setGameTime(gameTime.name ? gameTime.name : "60");
         setSelectedIdGameTime(gameTime.id ? gameTime.id : "5")
     };
 
     const renderBeforeWord = ({item}) => {
-        const backgroundColor = item.id === selectedId ? 'yellow' : '#fff';
+        const color = item.id === selectedId ? 'yellow' : '#815482';
         return (
-            <TouchableHighlight underlayColor='yellow' onPress={() => handleBeforeWordPress(item)}>
-                <Text style={{backgroundColor, padding: 10}}>
+            <TouchableHighlight onPress={() => handleBeforeWordPress(item)}>
+                <Text style={{color, backgroundColor:'transparent', padding: 10, marginHorizontal: 10, fontSize: 38 }}>
                     {item.name}
                 </Text>
             </TouchableHighlight>
         );
     };
     const renderGameTime = ({item}) => {
-        const backgroundColor = item.id === selectedIdGameTime ? 'yellow' : '#fff';
+        const color = item.id === selectedIdGameTime ? 'yellow' : '#815482';
         return (
-            <TouchableHighlight underlayColor='yellow' onPress={() => handleGameTimePress(item)}>
-                <Text style={{backgroundColor, padding: 10}}>
+            <TouchableHighlight onPress={() => handleGameTimePress(item)}>
+                <Text style={{color, backgroundColor:'transparent', padding: 10, marginHorizontal: 10, fontSize: 38 }}>
                     {item.name}
                 </Text>
             </TouchableHighlight>
@@ -74,7 +75,7 @@ const HelloWorld = (nav) => {
                 style={styles.background}
             />
             <View style={{marginVertical: 20}}>
-                <Text>Temps avant le prochain mot</Text>
+                <Text style={styles.text}>Temps avant le prochain mot</Text>
                 <FlatList
                     horizontal={true}
                     data={timeBeforeWord}
@@ -83,7 +84,7 @@ const HelloWorld = (nav) => {
                 />
             </View>
             <View style={{marginVertical: 20}}>
-                <Text>Temps de passage</Text>
+                <Text style={styles.text}>Temps de passage</Text>
                 <FlatList
                     horizontal={true}
                     data={gameTimes}
@@ -92,33 +93,23 @@ const HelloWorld = (nav) => {
                 />
             </View>
             <View style={{marginVertical: 20}}>
-                <Text>Définir le nom des équipes :</Text>
+                <Text style={styles.text}>Équipes :</Text>
                 <TextInput
-                    style={{
-                        height: 40,
-                        margin: 12,
-                        borderWidth: 1,
-                        padding: 10
-                    }}
+                    style={styles.input}
                     onChangeText={(text) => setPlayer1(text)}
                     value={player1}
                 />
                 <TextInput
-                    style={{
-                        height: 40,
-                        margin: 12,
-                        borderWidth: 1,
-                        padding: 10
-                    }}
+                    style={styles.input}
                     onChangeText={(text) => setPlayer2(text)}
                     value={player2}
                 />
             </View>
             <View>
                 <TouchableHighlight onPress={handleStartPress}>
-                    <Text>START</Text>
+                    <Text style={styles.mainButton}>START</Text>
                 </TouchableHighlight>
-            </View>
+            </View>     
         </View>
     );
 };
@@ -142,10 +133,12 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
     },
+    text :{
+        color: "white",
+    },
     mainButton: {
         position: 'absolute',
         alignSelf: 'center',
-        marginTop: height / 2.5,
         backgroundColor: 'yellow',
         padding: 15,
         borderRadius: 25
@@ -156,11 +149,23 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30
     },
+    input: {
+        borderWidth: 1,
+        color: "#5b375b",
+        borderColor: 'transparent',
+        borderRadius: 5,
+        padding: 10,
+        fontSize: 38
+    },
     background: {
         position: 'absolute',
         left: 0,
         right: 0,
         top: 0,
         height: 900,
+    },
+    flatlist: {
+        underlayColor: 'blue',
+        marginVertical: 20,
     },
 });
