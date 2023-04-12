@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 1, // IOS
         shadowRadius: 1, //IOS
         elevation: 1, //Android (don't work)
-        width: width / 1.5,
+        width: width / 1.2,
         backgroundColor: 'yellow',
         borderRadius: 25,
         marginBottom: 50,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 1, // IOS
         shadowRadius: 1, //IOS
         elevation: 1, //Android (don't work)
-        width: width / 1.5,
+        width: width / 1.2,
         backgroundColor: 'yellow',
         borderRadius: 25,
         marginBottom: 50,
