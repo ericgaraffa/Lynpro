@@ -23,8 +23,8 @@ const HelloWorld = (nav) => {
 
     const [selectedId, setSelectedId] = React.useState(2);
     const [selectedIdGameTime, setSelectedIdGameTime] = React.useState(5);
-    const [beforeWord, setBeforeWord] = React.useState(4);
-    const [gameTime, setGameTime] = React.useState(60);
+    const [beforeWord, setBeforeWord] = React.useState(5100);
+    const [gameTime, setGameTime] = React.useState(30);
     const [player1, setPlayer1] = useState('Player1');
     const [player2, setPlayer2] = useState('Player2');
 
@@ -38,11 +38,11 @@ const HelloWorld = (nav) => {
     };
 
     const handleBeforeWordPress = beforeWord => {
-        setBeforeWord(beforeWord.name * 1000 + 100 ? beforeWord.name * 1000 + 100 : 2);
+        setBeforeWord(beforeWord.name * 1000 + 100);
         setSelectedId(beforeWord.id ? beforeWord.id : "2");
     };
     const handleGameTimePress = gameTime => {
-        setGameTime(gameTime.name ? gameTime.name : "60");
+        setGameTime(gameTime.name);
         setSelectedIdGameTime(gameTime.id ? gameTime.id : "5")
     };
 
@@ -106,8 +106,8 @@ const HelloWorld = (nav) => {
                 />
             </View>
             <View>
-                <TouchableHighlight onPress={handleStartPress}>
-                    <Text style={styles.mainButton}>START</Text>
+                <TouchableHighlight onPress={handleStartPress}  style={styles.mainButton}>
+                    <Text style={styles.mainButtonText}>START</Text>
                 </TouchableHighlight>
             </View>     
         </View>
@@ -137,6 +137,11 @@ const styles = StyleSheet.create({
         color: "white",
     },
     mainButton: {
+        shadowColor: 'rgba(75,15,77, .4)', // IOS
+        shadowOffset: {height: 10, width: 10}, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        elevation: 1, //Android (don't work)
         position: 'absolute',
         alignSelf: 'center',
         backgroundColor: 'yellow',
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: 30
+        fontSize: 20
     },
     input: {
         borderWidth: 1,
