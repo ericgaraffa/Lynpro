@@ -3,7 +3,28 @@ import {View, Text, StyleSheet, Alert, Button, Dimensions} from 'react-native';
 import { Audio } from 'expo-av';
 import {useNavigation} from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-
+let musicFiles = {
+    'Ambicion': require('../assets/music/Ambicion.mp3'),
+    'Caution': require('../assets/music/Caution.mp3'),
+    'De_Locos': require('../assets/music/De_Locos.mp3'),
+    'Guadalquivir': require('../assets/music/Guadalquivir.mp3'),
+    'Leyendas_Urbanas': require('../assets/music/Leyendas_Urbanas.mp3'),
+    'Mezcal': require('../assets/music/Mezcal.mp3'),
+    'Mutantes': require('../assets/music/Mutantes.mp3'),
+    'Narcos': require('../assets/music/Narcos.mp3'),
+    'No_molestes': require('../assets/music/No_molestes.mp3'),
+    'Oliver_y_Benji': require('../assets/music/Oliver_y_Benji.mp3'),
+    'Quavo': require('../assets/music/Quavo.mp3'),
+    'San_Telmo': require('../assets/music/San_Telmo.mp3'),
+    'Shoote': require('../assets/music/Shoote.mp3'),
+    'Soneto': require('../assets/music/Soneto.mp3'),
+    'Todopoderoso': require('../assets/music/Todopoderoso.mp3'),
+    'Un_dolar': require('../assets/music/Un_dolar.mp3'),
+    'Un_euro_primo': require('../assets/music/Un_euro_primo.mp3'),
+    'Undertaker': require('../assets/music/Undertaker.mp3'),
+    'Valhalla': require('../assets/music/Valhalla.mp3'),
+    'Warzone': require('../assets/music/Warzone.mp3'),
+};
 const {height, width} = Dimensions.get('window');
 
 const Game = (navigation) => {
@@ -23,7 +44,18 @@ const Game = (navigation) => {
     const [currentWord, setCurrentWord] = useState(words[random]['Mot']);
     const [timeLeft, setTimeLeft] = useState(navigation.route.params.gameTime ? navigation.route.params.gameTime : 60);
     const [round, setRound] = useState(1);
+    const [count, setCount] = useState(0);
     const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
+    const [songKey, setSongKey] = useState(null);
+    let ChooseChoice
+
+    useEffect(() => {
+        if (!songKey) {
+            let keys = Object.keys(musicFiles);
+            let randomKey = keys[ keys.length * Math.random() << 0];
+            setSongKey(randomKey);
+        }
+    }, [songKey]);
 
     useEffect(() => {
         // Fetch words from JSON file
@@ -83,20 +115,49 @@ const Game = (navigation) => {
         return () => clearInterval(interval);
     }, [timeLeft, round]);
 
+    function getRandomSongKey() {
+        if(count == 0) {
+            setCount(1);
+            console.log(round)
+            let keys = Object.keys(musicFiles);
+            let randomKey = keys[ keys.length * Math.random() << 0];
+            console.log("RANDOMKEY " + randomKey)
+            ChooseChoice = randomKey;
+            return randomKey;
+        } else {
+            return ChooseChoice;
+        }
+    }
+    useEffect(() => {
+        Audio.setAudioModeAsync({
+            allowsRecordingIOS: false,
+            staysActiveInBackground: false,
+            playsInSilentModeIOS: true,
+            shouldDuckAndroid: true,
+            playThroughEarpieceAndroid: true,
+        });
+    }, []);
+
     useEffect(() => {
         let music = new Audio.Sound();
-        if(round <= 2) {
-            console.log("Loading sound");
-            music.loadAsync(require('../assets/music/music.mp3')).then(() => {
+        let isLoaded = false;
+
+        if(round <= 2 && songKey) {
+            let musicFile = musicFiles[songKey];
+            music.loadAsync(musicFile, { shouldPlay: true }).then(() => {
                 console.log("Sound Loaded");
+                isLoaded = true;
                 if(isMounted.current) music.playAsync();
             });
         }
         return () => {
-            music.stopAsync();
-            music.unloadAsync();
+            if (isLoaded) {
+                music.stopAsync();
+                music.unloadAsync();
+            }
         }
-    }, [round,isMounted.current]);
+    }, [round, isMounted.current, songKey, musicFiles]);
+
     const handleRematch = () => {
         nav.goBack()
     };
