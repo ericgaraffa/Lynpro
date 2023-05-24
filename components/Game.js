@@ -44,10 +44,8 @@ const Game = (navigation) => {
     const [currentWord, setCurrentWord] = useState(words[random]['Mot']);
     const [timeLeft, setTimeLeft] = useState(navigation.route.params.gameTime ? navigation.route.params.gameTime : 60);
     const [round, setRound] = useState(1);
-    const [count, setCount] = useState(0);
     const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
     const [songKey, setSongKey] = useState(null);
-    let ChooseChoice
 
     useEffect(() => {
         if (!songKey) {
@@ -115,19 +113,6 @@ const Game = (navigation) => {
         return () => clearInterval(interval);
     }, [timeLeft, round]);
 
-    function getRandomSongKey() {
-        if(count == 0) {
-            setCount(1);
-            console.log(round)
-            let keys = Object.keys(musicFiles);
-            let randomKey = keys[ keys.length * Math.random() << 0];
-            console.log("RANDOMKEY " + randomKey)
-            ChooseChoice = randomKey;
-            return randomKey;
-        } else {
-            return ChooseChoice;
-        }
-    }
     useEffect(() => {
         Audio.setAudioModeAsync({
             allowsRecordingIOS: false,
