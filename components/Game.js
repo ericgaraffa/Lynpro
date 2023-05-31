@@ -46,6 +46,16 @@ const Game = (navigation) => {
     const [round, setRound] = useState(1);
     const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
     const [songKey, setSongKey] = useState(null);
+    const [initTime, setInitTime] = useState(3);
+
+    useEffect(() => {
+        if (initTime > 0) {
+            const timer = setInterval(() => {
+                setInitTime(initTime - 1);
+            }, 1000);
+            return () => clearInterval(timer);
+        }
+    }, [initTime]);
 
     useEffect(() => {
         if (!songKey) {
@@ -66,32 +76,41 @@ const Game = (navigation) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (timeLeft === 0) {
+            if (initTime > 0) {
+                setInitTime(initTime - 1);
+                if(navigation.route.params.gameTime)
+                    setTimeLeft(navigation.route.params.gameTime)
+                else
+                    setTimeLeft(60)
+            }
+            if (initTime === 0 && timeLeft === 0) {
                 clearInterval(interval);
                 if (round === 2 || round === 3) {
                     if(round < 3){
                         setRound(round + 1);
+                        setInitTime(3)
                         setCurrentWord("");
                     }
-                    if(round == 2){
+                    if(round === 2){
                         SetEndGame(true);
                         Alert.alert('FIN', 'La partie est terminée');
                     }
                 } else {
                     setRound(round + 1);
                     setTimeLeft(navigation.route.params.gameTime);
+                    setInitTime(3); // set initTime to 3 for the next round
                     setPlayer(player === navigation.route.params.player1 ? navigation.route.params.player2 ? navigation.route.params.player2 : "player2"  : navigation.route.params.player1);
                 }
             }
-        }, 2000);
+        }, 1000);
         return () => clearInterval(interval);
-    }, [words, timeLeft, round, navigation.route.params.gameTime, navigation.route.params.player1, navigation.route.params.player2]);
+    }, [initTime, words, timeLeft, round, navigation.route.params.gameTime, navigation.route.params.player1, navigation.route.params.player2]);
 
     useEffect(() => {
         // Display a new word every 2 seconds
         const interval = setInterval(() => {
             if (words.length > 0) {
-                if(round < 3) {
+                if(round < 3 && initTime === 0) {
                     const randomIndex = Math.floor(Math.random() * words.length);
                     const randomWord = words[randomIndex]['Mot'];
                     setCurrentWord(randomWord);
@@ -99,7 +118,7 @@ const Game = (navigation) => {
             }
         }, navigation.route.params.wordTime);
         return () => clearInterval(interval);
-    }, [words, round, navigation.route.params.wordTime]);
+    }, [initTime ,words, round, navigation.route.params.wordTime]);
 
     // decrement the time left every second
     useEffect(() => {
@@ -107,19 +126,18 @@ const Game = (navigation) => {
             if (timeLeft === 0) {
                 clearInterval(interval);
             } else {
-                setTimeLeft(timeLeft - 1);
+                if(initTime === 0)
+                    setTimeLeft(timeLeft - 1);
             }
         }, 1000);
         return () => clearInterval(interval);
-    }, [timeLeft, round]);
+    }, [initTime, timeLeft, round]);
 
     useEffect(() => {
         Audio.setAudioModeAsync({
             allowsRecordingIOS: false,
             staysActiveInBackground: false,
             playsInSilentModeIOS: true,
-            shouldDuckAndroid: true,
-            playThroughEarpieceAndroid: true,
         });
     }, []);
 
@@ -154,12 +172,25 @@ const Game = (navigation) => {
                 colors={['rgba(63,15,64,0.9)', 'transparent']}
                 style={styles.background}
             />
-            <Text style={styles.timer}>{timeLeft}</Text>
-            <Text style={styles.player}>{player}</Text>
-            <View style={styles.wordContainer}>
-                <Text style={styles.word}>{currentWord}</Text>
-            </View>
-            {EndGame && (<Button onPress={handleRematch} title="Rejouer"></Button>) }
+            {EndGame ? (
+                <View style={styles.rematchButtonContainer}>
+                    <Button onPress={handleRematch} title="Rejouer" color="#841584"></Button>
+                </View>
+            ) : (
+                <>
+                    {initTime > 0 ? (
+                        <Text style={styles.timer}>{initTime}</Text>
+                    ) : (
+                        <>
+                            <Text style={styles.timer}>{timeLeft}</Text>
+                            <Text style={styles.player}>{player}</Text>
+                            <View style={styles.wordContainer}>
+                                <Text style={styles.word}>{currentWord}</Text>
+                            </View>
+                        </>
+                    )}
+                </>
+            )}
         </View>
     );
 }
@@ -202,5 +233,17 @@ const styles = StyleSheet.create({
         right: 0,
         top: 0,
         height: 900,
+    },
+    rematchButtonContainer: {
+        position: 'absolute',
+        textDecorationColor: 'white',
+        top: '50%',
+        left: '50%',
+        transform: [
+            { translateX: -width / 4 },
+            { translateY: -height / 4 }
+        ],
+        width: 200, // Or whatever size you want
+        height: 300, // Or whatever size you want
     }
 });
