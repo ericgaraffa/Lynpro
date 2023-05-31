@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, StyleSheet, Alert, Button, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Alert, Button, Dimensions, TouchableHighlight} from 'react-native';
 import { Audio } from 'expo-av';
 import {useNavigation} from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
@@ -173,17 +173,23 @@ const Game = (navigation) => {
                 style={styles.background}
             />
             {EndGame ? (
-                <View style={styles.rematchButtonContainer}>
-                    <Button onPress={handleRematch} title="Rejouer" color="#841584"></Button>
-                </View>
+
+                    <TouchableHighlight onPress={handleRematch}  style={styles.rematchButtonContainer}>
+                        <Text style={styles.rematchButton}>REJOUER</Text>
+                    </TouchableHighlight>
+
             ) : (
                 <>
                     {initTime > 0 ? (
                         <Text style={styles.timer}>{initTime}</Text>
                     ) : (
                         <>
-                            <Text style={styles.timer}>{timeLeft}</Text>
-                            <Text style={styles.player}>{player}</Text>
+                            <View style={styles.playerContainer}>
+                                <Text style={styles.player}>{player}</Text>
+                            </View>
+                            <View style={styles.timerContainer}>
+                                <Text style={styles.timer}>{timeLeft}</Text>
+                            </View>
                             <View style={styles.wordContainer}>
                                 <Text style={styles.word}>{currentWord}</Text>
                             </View>
@@ -204,11 +210,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
+    timerContainer: {
+        alignItems: 'center',
+        marginTop: 10,
+        justifyContent: 'center',
+    },
     timer: {
         color: 'white',
         fontSize: 50,
         marginTop: height / 12,
         marginBottom: 30,
+    },
+    playerContainer: {
+        alignItems: 'center',
+        marginTop: height / 4,
+        justifyContent: 'center',
     },
     player: {
         color: 'white',
@@ -217,11 +233,16 @@ const styles = StyleSheet.create({
     },
     wordContainer: {
         alignItems: 'center',
-        marginTop: height / 4,
+        marginTop: 50,
         justifyContent: 'center',
+        borderWidth: 3,  // Ajoute une bordure d'épaisseur 1
+        borderColor: 'white',  // Couleur de la bordure
+        borderRadius: 25,  // Rayon des coins du rectangle
+        paddingHorizontal: 25,  // Espacement horizontal à l'intérieur du conteneur
+        paddingVertical: 15,  // Espacement vertical à l'intérieur du conteneur
     },
     word: {
-        color: 'yellow',
+        color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 30,
@@ -234,16 +255,24 @@ const styles = StyleSheet.create({
         top: 0,
         height: 900,
     },
+    rematchButton: {
+        color: 'black',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 20
+    },
     rematchButtonContainer: {
         position: 'absolute',
-        textDecorationColor: 'white',
-        top: '50%',
-        left: '50%',
-        transform: [
-            { translateX: -width / 4 },
-            { translateY: -height / 4 }
-        ],
-        width: 200, // Or whatever size you want
-        height: 300, // Or whatever size you want
+        marginTop: height / 2,
+        shadowColor: 'rgba(75,15,77, .4)', // IOS
+        shadowOffset: {height: 10, width: 10}, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        elevation: 1, //Android (don't work)
+        width: width / 1.2,
+        backgroundColor: 'yellow',
+        borderRadius: 25,
+        padding: 10,
+        alignItems: 'center',
     }
 });
