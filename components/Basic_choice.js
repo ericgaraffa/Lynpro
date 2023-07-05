@@ -19,8 +19,8 @@ const Basic_choice = (navigation) => {
                     style={styles.buttonStandard}
                     //Navigate to Game
                     onPress={() => nav.navigate("     ", {
-                        wordTime: 10100,
-                        gameTime: 2,
+                        wordTime: 10500,
+                        gameTime: 60,
                         player1: "player1",
                         player2: "player2"
                     })}
@@ -31,7 +31,7 @@ const Basic_choice = (navigation) => {
                     style={styles.buttonPersonnaliser}
                     // Navigate to Game
                     onPress={() => nav.navigate("     ", {
-                        wordTime: 5100,
+                        wordTime: 5500,
                         gameTime: 60,
                         player1: "player1",
                         player2: "player2"
@@ -43,7 +43,7 @@ const Basic_choice = (navigation) => {
                     style={styles.buttonPersonnaliser}
                     // Navigate to Game
                     onPress={() => nav.navigate("     ", {
-                        wordTime: 2100,
+                        wordTime: 2500,
                         gameTime: 60,
                         player1: "player1",
                         player2: "player2"

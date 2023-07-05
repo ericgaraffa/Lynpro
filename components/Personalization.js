@@ -38,7 +38,7 @@ const HelloWorld = (nav) => {
     };
 
     const handleBeforeWordPress = beforeWord => {
-        setBeforeWord(beforeWord.name * 1000 + 100);
+        setBeforeWord(beforeWord.name * 1000 + 500);
         setSelectedId(beforeWord.id ? beforeWord.id : "2");
     };
     const handleGameTimePress = gameTime => {

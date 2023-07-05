@@ -4,26 +4,48 @@ import { Audio } from 'expo-av';
 import {useNavigation} from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
 let musicFiles = {
-    'Ambicion': require('../assets/music/Ambicion.mp3'),
-    'Caution': require('../assets/music/Caution.mp3'),
-    'De_Locos': require('../assets/music/De_Locos.mp3'),
-    'Guadalquivir': require('../assets/music/Guadalquivir.mp3'),
-    'Leyendas_Urbanas': require('../assets/music/Leyendas_Urbanas.mp3'),
-    'Mezcal': require('../assets/music/Mezcal.mp3'),
-    'Mutantes': require('../assets/music/Mutantes.mp3'),
-    'Narcos': require('../assets/music/Narcos.mp3'),
-    'No_molestes': require('../assets/music/No_molestes.mp3'),
-    'Oliver_y_Benji': require('../assets/music/Oliver_y_Benji.mp3'),
-    'Quavo': require('../assets/music/Quavo.mp3'),
-    'San_Telmo': require('../assets/music/San_Telmo.mp3'),
-    'Shoote': require('../assets/music/Shoote.mp3'),
-    'Soneto': require('../assets/music/Soneto.mp3'),
-    'Todopoderoso': require('../assets/music/Todopoderoso.mp3'),
-    'Un_dolar': require('../assets/music/Un_dolar.mp3'),
-    'Un_euro_primo': require('../assets/music/Un_euro_primo.mp3'),
-    'Undertaker': require('../assets/music/Undertaker.mp3'),
-    'Valhalla': require('../assets/music/Valhalla.mp3'),
-    'Warzone': require('../assets/music/Warzone.mp3'),
+    'V6 - Bad dreams': require('../assets/music/Bad_dreams(V6).mp3'),
+    'Nerso_Verse - Caution': require('../assets/music/Caution(Nerso_Verse).mp3'),
+    'Nerso_Verse - De_Locos': require('../assets/music/De_Locos(Nerso_Verse).mp3'),
+    'Nerso_Verse - Guadalquivir': require('../assets/music/Guadalquivir(Nerso_Verse).mp3'),
+    'LP - 330': require('../assets/music/330(LP).mp3'),
+    'LP - ABOUTI 13': require('../assets/music/ABOUTI_13(LP).mp3'),
+    'LP - bete 4': require('../assets/music/bête_4(LP).mp3'),
+    'LP - BLOQUÉ 6': require('../assets/music/BLOQUÉ_6(LP).mp3'),
+    'LP - BOUNCE 3': require('../assets/music/BOUNCE_3(LP).mp3'),
+    'LP - BREAK': require('../assets/music/BREAK(LP).mp3'),
+    'LP - CC6': require('../assets/music/CC6_(LP).mp3'),
+    'LP - CHILL 8': require('../assets/music/CHILL_8(LP).mp3'),
+    'LP - CVLB 3': require('../assets/music/CVLB_3(LP).mp3'),
+    'LP - DARKNESS 5': require('../assets/music/DARKNESS_5(LP).mp3'),
+    'LP - DOL': require('../assets/music/DOL(LP).mp3'),
+    'LP - DRACE 4': require('../assets/music/DRACE_4(LP).mp3'),
+    'LP - EASY 5': require('../assets/music/EASY_5(LP).mp3'),
+    'LP - FEU V2': require('../assets/music/FEU_V2(LP).mp3'),
+    'LP - FIVE': require('../assets/music/FIVE(LP).mp3'),
+    'LP - FLU 4': require('../assets/music/FLU_4(LP).mp3'),
+    'LP - FREEZE': require('../assets/music/FREEZE(LP).mp3'),
+    'LP - GANG 3': require('../assets/music/GANG_3(LP).mp3'),
+    'LP - GOODBYE 7': require('../assets/music/GOODBYE_7(LP).mp3'),
+    'LP - HALLOWEEN': require('../assets/music/HALLOWEEN(LP).mp3'),
+    'LP - head 6': require('../assets/music/head_6(LP).mp3'),
+    'LP - ICI 4': require('../assets/music/ICI_4(LP).mp3'),
+    'LP - INTRO VI': require('../assets/music/INTRO_VI(LP).mp3'),
+    'LP - LY 8': require('../assets/music/LY_8(LP).mp3'),
+    'LP - MAN 12': require('../assets/music/MAN_12(LP).mp3'),
+    'LP - MOBB 3': require('../assets/music/MOBB_3(LP).mp3'),
+    'LP - NG': require('../assets/music/NG(LP).mp3'),
+    'LP - NM 7 BREAK': require('../assets/music/NM_7_BREAK(LP).mp3'),
+    'LP - NOIR XII': require('../assets/music/NOIR_XII(LP).mp3'),
+    'LP - old school freestyle': require('../assets/music/old_school_freestyle(LP).mp3'),
+    'LP - OMNI 17': require('../assets/music/OMNI_17(LP).mp3'),
+    'LP - P3': require('../assets/music/P3(LP).mp3'),
+    'LP - PQP': require('../assets/music/PQP(LP).mp3'),
+    'LP - TA11': require('../assets/music/TA11(LP).mp3'),
+    'LP - TRAPEUR': require('../assets/music/TRAPEUR(LP).mp3'),
+    'LP - very chill 2': require('../assets/music/very_chill_2(LP).mp3'),
+    'LP - VT': require('../assets/music/VT(LP).mp3'),
+    'LP - WAZINK 12': require('../assets/music/WAZINK_12(LP).mp3')
 };
 const {height, width} = Dimensions.get('window');
 
@@ -46,7 +68,8 @@ const Game = (navigation) => {
     const [round, setRound] = useState(1);
     const [player, setPlayer] = useState(navigation.route.params.player1 ? navigation.route.params.player1 : "player1" );
     const [songKey, setSongKey] = useState(null);
-    const [initTime, setInitTime] = useState(3);
+    const [initTime, setInitTime] = useState(4);
+    const [currentMusic, setCurrentMusic] = useState("");
 
     useEffect(() => {
         if (initTime > 0) {
@@ -61,6 +84,7 @@ const Game = (navigation) => {
         if (!songKey) {
             let keys = Object.keys(musicFiles);
             let randomKey = keys[ keys.length * Math.random() << 0];
+            setCurrentMusic(randomKey);
             setSongKey(randomKey);
         }
     }, [songKey]);
@@ -88,7 +112,7 @@ const Game = (navigation) => {
                 if (round === 2 || round === 3) {
                     if(round < 3){
                         setRound(round + 1);
-                        setInitTime(3)
+                        setInitTime(4)
                         setCurrentWord("");
                     }
                     if(round === 2){
@@ -98,7 +122,7 @@ const Game = (navigation) => {
                 } else {
                     setRound(round + 1);
                     setTimeLeft(navigation.route.params.gameTime);
-                    setInitTime(3); // set initTime to 3 for the next round
+                    setInitTime(4); // set initTime to 3 for the next round
                     setPlayer(player === navigation.route.params.player1 ? navigation.route.params.player2 ? navigation.route.params.player2 : "player2"  : navigation.route.params.player1);
                 }
             }
@@ -190,6 +214,9 @@ const Game = (navigation) => {
                             <View style={styles.timerContainer}>
                                 <Text style={styles.timer}>{timeLeft}</Text>
                             </View>
+                            <View style={styles.musicNameContainer}>
+                                <Text style={styles.wordMusicName}>{currentMusic}</Text>
+                            </View>
                             <View style={styles.wordContainer}>
                                 <Text style={styles.word}>{currentWord}</Text>
                             </View>
@@ -241,12 +268,22 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,  // Espacement horizontal à l'intérieur du conteneur
         paddingVertical: 15,  // Espacement vertical à l'intérieur du conteneur
     },
+    musicNameContainer: {
+        alignItems: 'center',
+        marginTop: 50,
+        justifyContent: 'center',
+        fontSize: 10,
+    },
     word: {
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 30,
         textTransform: 'uppercase'
+    },
+    wordMusicName: {
+        color: 'white',
+        fontSize: 10,
     },
     background: {
         position: 'absolute',
@@ -260,6 +297,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 20
+    },
+    musicContainer: {
+        alignItems: 'center',
+        marginTop: 20,
+        justifyContent: 'center',
     },
     rematchButtonContainer: {
         position: 'absolute',
