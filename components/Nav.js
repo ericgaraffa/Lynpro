@@ -30,14 +30,10 @@ function CustomDrawerContent(props) {
     const [fontsloaded, setFontsLoaded] = useState(false);
     const progress = useDrawerProgress();
 
-    const translateX = Animated.interpolateNode(progress, {
-        inputRange: [0, 1],
-        outputRange: [-100, 0],
-    });
     if (fontsloaded) {
         return (
             <DrawerContentScrollView {...props} style={{backgroundColor: '#926593'}}>
-                <Animated.View style={{transform: [{translateX}]}}>
+                <Animated.View>
                     <DrawerItem labelStyle={styles.label} label="Enregistrements"
                                 onPress={() => alert('Link to help')}/>
                     <DrawerItem labelStyle={styles.label} label="Favoris" onPress={() => alert('Link to help')}/>
@@ -66,7 +62,6 @@ function DrawerNav() {
     return (
         <View style={styles.container}>
             <Drawer.Navigator
-                useLegacyImplementation
                 drawerContent={(props) => <CustomDrawerContent {...props} />}
                 screenOptions={{
                     headerStyle: {
