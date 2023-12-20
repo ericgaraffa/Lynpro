@@ -20,17 +20,17 @@ import basic_choice from "./Basic_choice";
 import {LinearGradient} from 'expo-linear-gradient';
 import {NavigationActions as navigation} from "react-navigation";
 import {useNavigation} from "@react-navigation/native";
-
-const getFonts = () =>
-    Font.loadAsync({
-        PoppinsMedium: require("../assets/fonts/Poppins-Medium.ttf"),
-    });
+import { Raleway_200ExtraLight } from "@expo-google-fonts/raleway";
+import { Quicksand_300Light } from "@expo-google-fonts/quicksand";
+import {useFonts} from "expo-font";
 
 function CustomDrawerContent(props) {
-    const [fontsloaded, setFontsLoaded] = useState(false);
+    const [fontsLoaded] = useFonts({
+        Raleway_200ExtraLight,
+        Quicksand_300Light,
+    });
     const progress = useDrawerProgress();
 
-    if (fontsloaded) {
         return (
             <DrawerContentScrollView {...props} style={{backgroundColor: '#926593'}}>
                 <Animated.View>
@@ -41,17 +41,6 @@ function CustomDrawerContent(props) {
                 </Animated.View>
             </DrawerContentScrollView>
         );
-    } else {
-        return (
-            <Apploading
-                startAsync={getFonts}
-                onFinish={() => {
-                    setFontsLoaded(true);
-                }}
-                onError={console.warn}
-            />
-        );
-    }
 }
 
 const Drawer = createDrawerNavigator();
@@ -75,10 +64,10 @@ function DrawerNav() {
                     headerRight: () => <DrawerToggleButton/>,
                 }}
             >
-                <Drawer.Screen name=" " component={Home} options={{
-
+                <Drawer.Screen name="home" component={Home} options={{
+                    title: ''
                 }}/>
-                <Drawer.Screen name="  " component={Format_choice} options={{
+                <Drawer.Screen name="format_choice" component={Format_choice} options={{
                     headerLeft: () => (
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <Image
@@ -87,8 +76,9 @@ function DrawerNav() {
                             />
                         </TouchableOpacity>
                     ),
+                    title: ''
                 }}/>
-                <Drawer.Screen name="   " component={basic_choice} options={{
+                <Drawer.Screen name="basic_choice" component={basic_choice} options={{
                     headerLeft: () => (
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <Image
@@ -97,8 +87,9 @@ function DrawerNav() {
                             />
                         </TouchableOpacity>
                     ),
+                    title: ''
                 }}/>
-                <Drawer.Screen name="    " component={Personalization} options={{
+                <Drawer.Screen name="personalization" component={Personalization} options={{
                     headerLeft: () => (
                         <TouchableOpacity onPress={() => navigation.goBack()}>
                             <Image
@@ -107,6 +98,7 @@ function DrawerNav() {
                             />
                         </TouchableOpacity>
                     ),
+                    title: ''
                 }}/>
             </Drawer.Navigator>
         </View>
@@ -117,13 +109,15 @@ function MyDrawer() {
     return (
         <View style={styles.container}>
             <Stack.Navigator>
-                <Stack.Group>
-                    <Stack.Screen name="Root" component={DrawerNav} options={{headerShown: false}}/>
-                    <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
-                    <Stack.Screen name="  " component={Format_choice} options={{headerShown: false}}/>
-                    <Stack.Screen name="   " component={Basic_choice} options={{headerShown: false}}/>
-                    <Stack.Screen name="    " component={Personalization} options={{headerShown: false}}/>
-                    <Stack.Screen name="     " component={Game} options={{headerShown: false}}/>
+                <Stack.Group screenOptions={{
+                    headerShown: false
+                }}>
+                    <Stack.Screen name="root" component={DrawerNav}/>
+                    <Stack.Screen name="home" component={Home}/>
+                    <Stack.Screen name="format_choice" component={Format_choice}/>
+                    <Stack.Screen name="basic_choice" component={Basic_choice}/>
+                    <Stack.Screen name="personalization" component={Personalization}/>
+                    <Stack.Screen name="game" component={Game}/>
                 </Stack.Group>
             </Stack.Navigator>
         </View>
@@ -139,7 +133,11 @@ const styles = StyleSheet.create({
         color: '#340335',
         fontSize: 18,
         fontWeight: 'bold',
-        fontFamily: 'PoppinsMedium',
+        fontFamily: "Raleway_200ExtraLight",
+    },
+    raleway: {
+        fontSize: 20,
+        fontFamily: "Raleway_200ExtraLight",
     },
     background: {
         position: 'absolute',

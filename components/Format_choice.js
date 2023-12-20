@@ -18,13 +18,13 @@ const Format_Choice = (navigation) => {
             <View style={styles.centeredView}>
                 <TouchableHighlight
                     style={styles.buttonStandard}
-                    onPress={() => nav.navigate("   ")}
+                    onPress={() => nav.navigate("basic_choice")}
                 >
                     <Text style={styles.buttonText}>STANDARD</Text>
                 </TouchableHighlight>
                 <TouchableHighlight
                     style={styles.buttonPersonnaliser}
-                    onPress={() => nav.navigate("    ")}
+                    onPress={() => nav.navigate("personalization")}
                 >
                     <Text style={styles.buttonText}>PERSONNALISER</Text>
                 </TouchableHighlight>

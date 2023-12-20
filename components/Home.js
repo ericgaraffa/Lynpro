@@ -19,7 +19,7 @@ const MyComponent = () => {
             <TouchableOpacity
                 style={styles.mainButton}
                 // Go to Format_choice
-                onPress={() => navigation.navigate("  ")}>
+                onPress={() => navigation.navigate("format_choice")}>
                 <Text style={styles.mainButtonText}>BATTLE</Text>
             </TouchableOpacity>
         </View>

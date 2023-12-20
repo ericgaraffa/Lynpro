@@ -9,6 +9,8 @@
     "bandroid": "eas build -p android"
   },
   "dependencies": {
+    "@expo-google-fonts/quicksand": "^0.2.3",
+    "@expo-google-fonts/raleway": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-community/masked-view": "^0.1.11",
@@ -32,6 +34,7 @@
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-native": "0.72.6",
+    "react-native-asset": "^2.1.1",
     "react-native-elements": "^3.4.2",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "~2.12.0",
